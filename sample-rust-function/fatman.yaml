@@ -1,0 +1,7 @@
+name: rust-function
+owner_email: sample@example.com
+lang: rust
+
+git:
+  remote: https://github.com/TheRacetrack/plugin-rust-job-type
+  directory: sample-rust-function
