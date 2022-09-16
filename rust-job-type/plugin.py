@@ -11,7 +11,7 @@ class Plugin:
         """
         return {
             'rust': (
-                f'{docker_registry_prefix}/rust:1.1.0', 
+                f'{docker_registry_prefix}/rust:{self.plugin_manifest.version}', 
                 self.plugin_dir / 'fatman-template.Dockerfile',
             ),
         }
