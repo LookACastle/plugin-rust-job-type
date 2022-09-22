@@ -28,7 +28,7 @@ push-local: build
 	docker push localhost:5000/racetrack/fatman-base/rust:$(TAG)
 
 push-private-registry: build
-	dcoker login ${REGISTRY}
+	docker login ${REGISTRY}
 	docker tag ghcr.io/theracetrack/racetrack/fatman-base/rust:latest ${REGISTRY}/fatman-base/rust:$(TAG)
 	docker push ${REGISTRY}/fatman-base/rust:$(TAG)
 
