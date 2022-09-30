@@ -1,6 +1,4 @@
-TAG ?= 1.1.0
-
--include .env
+TAG ?= 1.2.0
 
 run:
 	cd rust-job-type/rust_wrapper &&\
@@ -18,29 +16,9 @@ build:
 		-t ghcr.io/theracetrack/racetrack/fatman-base/rust:latest \
 		-f base.Dockerfile .
 
-push: build
-	docker login ghcr.io
-	docker tag ghcr.io/theracetrack/racetrack/fatman-base/rust:latest ghcr.io/theracetrack/racetrack/fatman-base/rust:$(TAG)
-	docker push ghcr.io/theracetrack/racetrack/fatman-base/rust:$(TAG)
-
-push-local: build
-	docker tag ghcr.io/theracetrack/racetrack/fatman-base/rust:latest localhost:5000/racetrack/fatman-base/rust:$(TAG)
-	docker push localhost:5000/racetrack/fatman-base/rust:$(TAG)
-
-push-private-registry: build
-	docker login ${REGISTRY}
-	docker tag ghcr.io/theracetrack/racetrack/fatman-base/rust:latest ${REGISTRY}/fatman-base/rust:$(TAG)
-	docker push ${REGISTRY}/fatman-base/rust:$(TAG)
-
-push-all: push push-local push-private-registry
-
-env-template:
-	cp -n .env.dist .env
-	@echo "Now fill in the .env file with your settings"
-
 bundle:
 	cd rust-job-type &&\
-	racetrack-plugin-bundler bundle
+	racetrack-plugin-bundler bundle --plugin-version=${TAG} --out=..
 
 deploy-sample:
 	racetrack deploy sample-rust-function docker
