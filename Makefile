@@ -18,7 +18,7 @@ build:
 
 bundle:
 	cd rust-job-type &&\
-	racetrack-plugin-bundler bundle --plugin-version=${TAG} --out=..
+	racetrack plugin bundle --plugin-version=${TAG} --out=..
 
 deploy-sample:
 	racetrack deploy sample-rust-function docker
