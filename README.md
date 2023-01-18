@@ -13,5 +13,5 @@ It's a language wrapper converting your code written in Rust to a Fatman web ser
 ## Usage
 You can deploy sample Rust job by running:
 ```bash
-racetrack deploy sample-rust-function <RACETRACK_URL>
+racetrack deploy sample-rust-function
 ```

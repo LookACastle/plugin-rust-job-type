@@ -21,4 +21,4 @@ bundle:
 	racetrack plugin bundle --plugin-version=${TAG} --out=..
 
 deploy-sample:
-	racetrack deploy sample-rust-function docker
+	racetrack deploy sample-rust-function
