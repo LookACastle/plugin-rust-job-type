@@ -1,5 +1,3 @@
-TAG ?= 1.2.0
-
 run:
 	cd rust-job-type/rust_wrapper &&\
 	FATMAN_NAME=rust-function FATMAN_VERSION=0.0.1 FATMAN_DEPLOYMENT_TIMESTAMP=0 cargo run
@@ -18,7 +16,7 @@ build:
 
 bundle:
 	cd rust-job-type &&\
-	racetrack plugin bundle --plugin-version=${TAG} --out=..
+	racetrack plugin bundle --out=..
 
 deploy-sample:
 	racetrack deploy sample-rust-function
