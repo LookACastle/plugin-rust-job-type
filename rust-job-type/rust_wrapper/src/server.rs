@@ -16,11 +16,11 @@ pub async fn serve() -> std::io::Result<()> {
         .init();
     info!("I wish only to serve...");
 
-    let fatman_name = env::var("FATMAN_NAME").unwrap();
+    let job_name = env::var("JOB_NAME").unwrap();
 	// Serve endpoints at raw path (to facilitate debugging) and prefixed path (when accessed through PUB).
-	// Accept any version so that fatman can be called by its many version names ("latest", "1.x").
+	// Accept any version so that job can be called by its many version names ("latest", "1.x").
 	let base_urls: Vec<String> = vec![
-		format!("/pub/fatman/{name}/{{version}}", name=fatman_name),
+		format!("/pub/job/{name}/{{version}}", name=job_name),
 		String::new(),
     ];
 
@@ -45,7 +45,7 @@ pub async fn serve() -> std::io::Result<()> {
 }
 
 async fn homepage() -> impl Responder {
-    HttpResponse::Ok().body("This is a fatman built with Rust language wrapper")
+    HttpResponse::Ok().body("This is a job built with Rust language wrapper")
 }
 
 async fn perform_handler(input: web::Json<HashMap<String, Value>>) -> web::Json<Value> {
