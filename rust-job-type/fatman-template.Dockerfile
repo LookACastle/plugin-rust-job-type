@@ -12,7 +12,7 @@ RUN apt-get update -y && apt-get install -y \
 COPY . /src/rust_wrapper/src/handler/
 RUN chmod -R a+rw /src/rust_wrapper && cd /src/rust_wrapper/ && cargo build
 
-ENV FATMAN_NAME "{{ manifest.name }}"
-ENV FATMAN_VERSION "{{ manifest.version }}"
+ENV JOB_NAME "{{ manifest.name }}"
+ENV JOB_VERSION "{{ manifest.version }}"
 ENV GIT_VERSION "{{ git_version }}"
 ENV DEPLOYED_BY_RACETRACK_VERSION "{{ deployed_by_racetrack_version }}"
