@@ -1,6 +1,6 @@
 name: rust-function
 owner_email: sample@example.com
-lang: rust
+lang: rust:latest
 
 git:
   remote: https://github.com/TheRacetrack/plugin-rust-job-type
